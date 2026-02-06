@@ -534,7 +534,7 @@ export class WinAxAdapter implements ISolidWorksAdapter {
     
     for (const name of sketchNames) {
       try {
-        const selected = ext.SelectByID2(name, 'SKETCH', 0, 0, 0, false, 0, null, 0);
+        const selected = ext.SelectByID2(name, 'SKETCH', 0, 0, 0, false, 0, undefined, 0);
         if (selected) {
           logger.info(`Selected sketch: ${name}`);
           return true;
@@ -635,7 +635,7 @@ export class WinAxAdapter implements ISolidWorksAdapter {
     const ext = this.currentModel.Extension;
     
     // Select the plane
-    const selected = ext.SelectByID2(plane, 'PLANE', 0, 0, 0, false, 0, null, 0);
+    const selected = ext.SelectByID2(plane, 'PLANE', 0, 0, 0, false, 0, undefined, 0);
     if (!selected) {
       throw new Error(`Failed to select plane: ${plane}`);
     }

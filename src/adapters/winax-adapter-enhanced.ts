@@ -324,7 +324,7 @@ export class EnhancedWinAxAdapter implements ISolidWorksAdapter {
       // Select profiles
       for (const profile of params.profiles) {
         this.currentModel.Extension.SelectByID2(
-          profile, 'SKETCH', 0, 0, 0, true, 0, null, 0
+          profile, 'SKETCH', 0, 0, 0, true, 0, undefined, 0
         );
       }
       
@@ -395,7 +395,7 @@ export class EnhancedWinAxAdapter implements ISolidWorksAdapter {
     
     for (const name of sketchNames) {
       try {
-        const selected = ext.SelectByID2(name, 'SKETCH', 0, 0, 0, false, 0, null, 0);
+        const selected = ext.SelectByID2(name, 'SKETCH', 0, 0, 0, false, 0, undefined, 0);
         if (selected) {
           logger.info(`Selected sketch: ${name}`);
           return true;
@@ -563,7 +563,7 @@ export class EnhancedWinAxAdapter implements ISolidWorksAdapter {
     if (!this.currentModel) throw new Error('No active model');
     
     const ext = this.currentModel.Extension;
-    ext.SelectByID2(plane + ' Plane', 'PLANE', 0, 0, 0, false, 0, null, 0);
+    ext.SelectByID2(plane + ' Plane', 'PLANE', 0, 0, 0, false, 0, undefined, 0);
     this.currentModel.SketchManager.InsertSketch(true);
     
     return this.currentModel.SketchManager.ActiveSketch.Name;
